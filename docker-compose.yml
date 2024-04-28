@@ -5,10 +5,10 @@ services:
     image: mysql:latest
     container_name: kt_mysql
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: laravel_to_do
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: kt_laravel_db
+      MYSQL_USER: kt_laravel_user
+      MYSQL_PASSWORD: kt_laravel_password
     volumes:
       - kt_mysql_volume:/var/lib/mysql
     networks:
@@ -16,6 +16,7 @@ services:
 
   kt_php:
     build:
+      context: .
       dockerfile: devops/docker/php.dockerfile
     container_name: kt_php
     volumes:
